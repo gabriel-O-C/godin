@@ -1,19 +1,22 @@
 package router
 
 import (
-	"net/http"
-
+	"github.com/gabriel-O-C/godin/handler"
 	"github.com/gin-gonic/gin"
 )
 
 func initializeRoutes(r *gin.Engine) {
 	v1 := r.Group("/api/v1")
 	{
-		v1.GET("/opening", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"message": "GET opening",
-			})
-		})
+		v1.GET("/opening", handler.ListOpeningHandler)
+
+		v1.GET("/opening/1", handler.ShowOpeningHandler)
+
+		v1.POST("/opening", handler.CreateOpeningHandler)
+
+		v1.PUT("/opening", handler.UpdateOpeningHandler)
+
+		v1.DELETE("/opening", handler.DeleteOpeningHandler)
 	}
 
 }
