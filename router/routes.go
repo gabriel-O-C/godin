@@ -10,9 +10,9 @@ func initializeRoutes(r *gin.Engine) {
 
 	v1 := r.Group("/api/v1")
 	{
-		v1.GET("/opening", handler.ListOpeningHandler)
+		v1.GET("/openings", handler.ListOpeningHandler)
 
-		v1.GET("/opening/1", handler.ShowOpeningHandler)
+		v1.GET("/opening", handler.ShowOpeningHandler)
 
 		v1.POST("/opening", handler.CreateOpeningHandler)
 
